@@ -31,7 +31,7 @@ npx @vyzn-tech/modelprep-cli@latest -r example/RefModel_Unteraegeri_B1B2_V1.xlsx
 npm install
 npm i -g tsc
 npx tsc
-node node dist/main.js -r example/RefModel_Unteraegeri_B1B2_V1.xlsx -m example/merge.csv -p example/products_mapping.csv -g example/overrides.csv -s example/shading_factors.csv -o output.csv -f
+node dist/main.js -r example/RefModel_Unteraegeri_B1B2_V1.xlsx -m example/merge.csv -p example/products_mapping.csv -g example/overrides.csv -s example/shading_factors.csv -o output.csv -f
 ```
 
 ## Expected Input
