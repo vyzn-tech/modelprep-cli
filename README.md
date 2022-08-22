@@ -1,17 +1,15 @@
-# acoustic-rating-cli
+# modelprep-cli
 
-modelprep is a TypeScript commandline-tool which allows preparing data for import into the vyzn platform.
+modelprep-cli is a TypeScript commandline-tool which allows preparing data for import into the vyzn platform.
 
 ## Usage
 
 Use the package runner [npx](https://github.com/npm/npm/releases/tag/v5.2.0) to execute modelprep.
 
 ```bash
-$ npx @vyzn-tech/modelprep --help
+$ npx @vyzn-tech/modelprep-cli --help
 Prepare a model for upload into the vyzn platform.
 Usage: main [options]
-
-modelprep
 
 Options:
   -r, --refmodel <path>         path to the reference model file (.xlsx)
@@ -27,7 +25,7 @@ Options:
 
 ```bash
 # Run using NPX
-npx @vyzn-tech/modelprep@latest -r example/RefModel_Unteraegeri_B1B2_V1.xlsx -m example/merge.csv -p example/products_mapping.csv -g example/overrides.csv -s example/shading_factors.csv -o output.csv -f
+npx @vyzn-tech/modelprep-cli@latest -r example/RefModel_Unteraegeri_B1B2_V1.xlsx -m example/merge.csv -p example/products_mapping.csv -g example/overrides.csv -s example/shading_factors.csv -o output.csv -f
 
 # Run using node
 npm install

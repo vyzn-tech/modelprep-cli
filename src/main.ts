@@ -23,7 +23,7 @@ async function main() {
     .option('-f, --force', 'force overwrite existing file')
 
   program.version('0.0.1')
-  program.description('modelprep')
+  program.description('modelprep-cli')
   program.parse()
 
   const refmodelPath = program.getOptionValue('refmodel')
