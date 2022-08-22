@@ -1,0 +1,43 @@
+import path from 'path';
+import { exec } from 'child_process';
+import { promises as fs, default as fssync} from 'fs';
+import { parseCSV } from 'csv-load-sync'
+
+test('prep model', async () => {
+    let result = await cli([
+        "-r", "example/RefModel_Unteraegeri_B1B2_V1.xlsx",
+        "-m", "example/merge.csv", 
+        "-p", "example/products_mapping.csv", 
+        "-g", "example/overrides.csv",
+        "-s", "example/shading_factors.csv",
+        "-o", "test_assets/test_actual_output.csv", 
+        "-f"], 
+    '.');
+    expect(result.code).toBe(0);
+
+    expect(fssync.existsSync('test_assets/test_actual_output.csv')).toBe(true);
+
+    const actualCsv = await readCsv('test_assets/test_actual_output.csv');
+    //const expectedCsv = await readCsv('test_assets/test_expected_output.csv')
+});
+
+function cli(args: Array<string>, cwd: string) : any {
+    return new Promise(resolve => { 
+      exec(`node ${path.resolve('./dist/main.js')} ${args.join(' ')}`,
+      { cwd }, 
+      (error: any, stdout: any, stderr: any) => { 
+        if(error) console.error(error);
+        if(stderr) console.error(stderr);
+        if(stdout) console.info(stdout);  
+        resolve({
+            code: error && error.code ? error.code : 0,
+            error,
+            stdout,
+            stderr });
+    })
+})}
+
+async function readCsv(path: string) : Promise<Array<any>> {
+  const raw = await fs.readFile(path, { encoding: 'utf8', flag: 'r' });
+  return parseCSV(raw);
+}
