@@ -78,7 +78,7 @@ A file containing the shading factors to apply to elements like Windows. See [ex
 
 ## Expected Output
 
-The tool will generate a consolidated file that can be imported into the vyzn platform. See [example](test_assets/output.csv).
+The tool will generate a consolidated file that can be imported into the vyzn platform. See [example](test_assets/test_actual_output.csv).
 
 ## Testing
 
