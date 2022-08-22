@@ -1,5 +1,5 @@
 {
-  "name": "@vyzn-tech/modelprep",
+  "name": "@vyzn-tech/modelprep-cli",
   "bin": {
     "modelprep": "node ./dist/main.js"
   },
@@ -20,9 +20,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "bugs": {
-    "url": "https://github.com/vyzn-tech/modelprep/issues"
+    "url": "https://github.com/vyzn-tech/modelprep-cli/issues"
   },
-  "homepage": "https://github.com/vyzn-tech/modelprep#readme",
+  "homepage": "https://github.com/vyzn-tech/modelprep-cli#readme",
   "dependencies": {
     "commander": "^9.4.0",
     "csv-load-sync": "^2.3.1",
@@ -75,7 +75,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/vyzn-tech/modelprep"
+    "url": "https://github.com/vyzn-tech/modelprep-cli"
   },
   "type": "module"
 }
