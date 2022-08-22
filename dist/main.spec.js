@@ -13,7 +13,8 @@ test('prep model', async () => {
         "-f"
     ], '.');
     expect(result.code).toBe(0);
-    expect(fssync.existsSync('test_actual_output.csv')).toBe(true);
+    expect(fssync.existsSync('test_assets/test_actual_output.csv')).toBe(true);
+    const actualCsv = await readCsv('test_assets/test_actual_output.csv');
 });
 function cli(args, cwd) {
     return new Promise(resolve => {

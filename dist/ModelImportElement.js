@@ -37,7 +37,7 @@ class ModelImportElement {
         this["b-Wert (Wärmebrücke)"] = "";
     }
     fillFromCsvRow(source) {
-        Object.assign(this, source);
+        this.assignExistingProperties(source);
     }
     fill(referenceModelRow, productElement) {
         this.GlobalId = referenceModelRow.ID;
@@ -62,15 +62,23 @@ class ModelImportElement {
     fillFromShadingFactors(shadingFactorElements) {
         for (const shadingFactorsElement of shadingFactorElements) {
             if (this.GlobalId == shadingFactorsElement.GlobalId) {
-                Object.assign(this, shadingFactorElements);
+                this.assignExistingProperties(shadingFactorElements);
             }
         }
     }
     fillFromOverrides(overrides) {
         for (const override of overrides) {
             const overrideObj = { [override.property]: override.value };
-            Object.assign(this, overrideObj);
+            this.assignExistingProperties(overrideObj);
         }
+    }
+    assignExistingProperties(source) {
+        var self = this;
+        Object.keys(source).forEach(function (key) {
+            if (self.hasOwnProperty(key)) {
+                self[key] = source[key];
+            }
+        });
     }
 }
 export default ModelImportElement;

@@ -43,5 +43,6 @@ declare class ModelImportElement {
     fill(referenceModelRow: ReferenceModelElement, productElement: ProductElement): void;
     fillFromShadingFactors(shadingFactorElements: Array<ShadingFactorsElement>): void;
     fillFromOverrides(overrides: Array<OverrideElement>): void;
+    private assignExistingProperties;
 }
 export default ModelImportElement;

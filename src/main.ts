@@ -13,7 +13,9 @@ import { Readable } from 'stream';
 
 async function main() {
   program
-    .addHelpText("before", "Prepare a model for upload into the vyzn platform.")
+    .name('modelprep-cli')
+    .version('0.0.1')
+    .description('Prepare a model for upload into the vyzn platform.')
     .requiredOption('-r, --refmodel <path>', 'path to the reference model file (.xlsx)')
     .requiredOption('-m, --merge <path>', 'path of the file to merge into the output file (.csv)')
     .requiredOption('-p, --products <path>', 'path of the products mapping file (.csv)')
@@ -21,9 +23,6 @@ async function main() {
     .requiredOption('-s, --shadingfactors <path>', 'path of the shading-factors file (.csv)')
     .requiredOption('-o, --output <path>', 'path to the output file (.csv)')
     .option('-f, --force', 'force overwrite existing file')
-
-  program.version('0.0.1')
-  program.description('modelprep-cli')
   program.parse()
 
   const refmodelPath = program.getOptionValue('refmodel')
